@@ -1,6 +1,14 @@
 let chickenContainer = document.querySelector(".chicken-container");
 let rocket = document.getElementById("rocket");
-let bullet = document.getElementById("bullet");
+// let bullet = document.getElementById("bullet");
+let rocketContainer = document.querySelector(".rocket-container");
+// let bulletStyle = window.getComputedStyle(bullet);
+// let bullet = document.createElement('img')
+// bullet.src = 'images/Bullet.png';
+// bullet.id = 'bullet';
+// rocketContainer.appendChild(bullet)
+// let bulletStyle = window.getComputedStyle(bullet);
+let rocketStyle = window.getComputedStyle(rocket);
 
 for (var i = 0; i < 84; i++) {
     chickenContainer.insertAdjacentHTML(
@@ -11,7 +19,6 @@ for (var i = 0; i < 84; i++) {
 
 window.addEventListener("keydown", (event) => {
     key = event.key;
-    console.log(key);
     switch (key) {
         case "ArrowUp":
             movement("up");
@@ -24,30 +31,53 @@ window.addEventListener("keydown", (event) => {
             break;
         case "ArrowRight":
             movement("right");
+            break;
+        case " ":
+            fire();
     }
 });
 function movement(direction) {
-    let rocketStyle = window.getComputedStyle(rocket);
-    let bulletStyle = window.getComputedStyle(bullet);
-
-    if (direction == "up" && rocketStyle.bottom.split() > -10) {
+    let bottomValue = parseInt(rocketStyle.bottom);
+    let leftValue = parseInt(rocketStyle.left);
+    let leftValueInP = Math.round((leftValue / window.innerWidth) * 100);
+    if (direction == "up" && bottomValue < 0) {
         rocket.style.bottom = 10 + parseInt(rocketStyle.bottom) + "px";
-        bullet.style.bottom = 10 + parseInt(bulletStyle.bottom) + "px";
     }
-    if (direction == "down" && rocketStyle.bottom < '-320px') {
+    if (direction == "down" && bottomValue > -320) {
         rocket.style.bottom = -10 + parseInt(rocketStyle.bottom) + "px";
-        bullet.style.bottom = -10 + parseInt(bulletStyle.bottom) + "px";
     }
-    if (direction == "left" && rocketStyle.left < "-7%") {
-        console.log(screen.width);
-        rocket.style.left =Math.round(-1 + parseInt(rocketStyle.left) / window.innerWidth * 100 ) + 'px';
-        console.log(Math.round(-10 + parseInt(rocketStyle.left) / window.innerWidth * 100 ))
-        bullet.style.left = -10 + parseInt(bulletStyle.left) + "px";
+    if (direction == "left" && leftValueInP > 10) {
+    
+        rocket.style.left = -10 + parseInt(rocketStyle.left) + "px";
     }
-    if (direction == "right") {
-        rocket.style.left = +10 + parseInt(rocketStyle.left) + "px";
-        bullet.style.left = +10 + parseInt(bulletStyle.left) + "px";
+    if (direction == "right" && leftValueInP < 90) {
+        rocket.style.left = 10 + parseInt(rocketStyle.left) + "px";
     }
-    console.log(rocketStyle.bottom)
-    console.log(rocketStyle.left)
+}
+function adjustBulletPosition(bullet,bulletLeft,bulletBottom){
+    bullet.style.left = bulletLeft;
+    bullet.style.bottom = parseInt(bulletBottom) + 350 + 'px';
+}
+function getBulletLeft(){
+    return rocketStyle.left;
+}
+function getBulletBottom(){
+    return rocketStyle.bottom;
+}
+function fire() {
+    let bullet = document.createElement('img')
+    bullet.src = 'images/Bullet.png';
+    bullet.id = 'bullet';
+    rocketContainer.appendChild(bullet)
+    let bulletStyle = window.getComputedStyle(bullet);
+    adjustBulletPosition(bullet,getBulletLeft(),getBulletBottom())   
+    let interval = setInterval(() => { 
+        let bulletBottom = parseInt(bulletStyle.bottom);
+        if (bulletBottom > 800) {
+            clearInterval(interval);
+            bullet.remove();
+        } else {
+            bullet.style.bottom = bulletBottom + 10 + "px";
+        }
+    }, 10);
 }

@@ -47,6 +47,7 @@ img {
 #bullet {
     position: absolute;
     height: 50px;
+    z-index: -2;
     width: 50px;
     bottom: 100px;
     left: 50%;
