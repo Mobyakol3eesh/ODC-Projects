@@ -1,4 +1,4 @@
-# Orange Digital Center Project - MEAN Stack Internship
+# Orange Digital Center Projects - MEAN Stack Internship
 
 Welcome to the **Orange Digital Center** project repository! This project was developed as part of the **MEAN Stack Course Internship** and showcases the implementation of a full-stack web application using the **MEAN** stack: **MongoDB**, **Express**, **Angular**, and **Node.js**.
 
