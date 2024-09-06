@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 16px
+}
+body {
+    background-image: url("../Images/Space.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.chicken-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto
+    auto auto auto;
+    width: 80%;
+    margin-inline: auto;
+}
+.rocket-container{
+    position: relative;
+    display: inline-block;
+    height: 400px;
+}
+#chicken{
+    height: 50px;
+    justify-self: center;
+    align-self: center;
+}
+
+#rocket {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    bottom: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#bullet {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
