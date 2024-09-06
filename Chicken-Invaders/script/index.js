@@ -1,13 +1,6 @@
 let chickenContainer = document.querySelector(".chicken-container");
 let rocket = document.getElementById("rocket");
-// let bullet = document.getElementById("bullet");
 let rocketContainer = document.querySelector(".rocket-container");
-// let bulletStyle = window.getComputedStyle(bullet);
-// let bullet = document.createElement('img')
-// bullet.src = 'images/Bullet.png';
-// bullet.id = 'bullet';
-// rocketContainer.appendChild(bullet)
-// let bulletStyle = window.getComputedStyle(bullet);
 let rocketStyle = window.getComputedStyle(rocket);
 
 for (var i = 0; i < 84; i++) {
