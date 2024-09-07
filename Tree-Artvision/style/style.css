@@ -23,7 +23,6 @@ img {
 .nav-bar .nav-links .nav-link {
     display: inline;
     margin-inline-start: 26px;
-    
 }
 .nav-bar .nav-links .nav-link a {
     text-decoration: none;
@@ -32,17 +31,17 @@ img {
     position: relative;
 }
 .nav-bar .nav-links .nav-link a::after {
-    content: '';
+    content: "";
     position: absolute;
     margin-top: 2px;
     border: 1px solid #d8b454;
     display: block;
     left: 50%;
     width: 120%;
-    transform: translateX(-50%) scaleX(0); 
-    transition: transform  0.5s ease;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.5s ease;
 }
-.nav-bar .nav-links .active a::after{
+.nav-bar .nav-links .active a::after {
     transform: translateX(-50%) scaleX(1);
 }
 .nav-bar .nav-links .nav-link a:hover::after {
@@ -53,53 +52,178 @@ img {
     width: 50px;
     height: 50px;
 }
-.hero{
+.hero {
     display: flex;
-    width: 80%;
+    width: 95%;
     margin-inline: auto;
     justify-content: center;
     align-items: flex-start;
+    min-height: calc(100vh - 70px - 150px);
 }
 
 .hero .imgs {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 .hero .imgs .viewed-img {
-    width: 60%;
-    min-width: 347px;
+    max-height: 500px;
     margin-inline-start: 3rem;
+    border-radius: 9px;
 }
 .hero .imgs .slideshow {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .hero .imgs .slideshow img {
-    height: 100px;
-    width: 60px;
+    max-height: 100px;
+    max-width: 60px;
+    opacity: 0.5;
     margin-bottom: 10px;
+    border-radius: 6px;
 }
-.hero .text{
-    margin-top: 40px;
+.hero .imgs .slideshow img:hover {
+    opacity: 1;
+}
+.hero .text {
+    margin: 40px;
+    justify-self: center;
+    width: 32%;
 }
 .hero .text h2 {
     font-size: 45px;
     text-align: center;
     margin-bottom: 48px;
 }
+.hero .text a {
+    text-decoration: none;
+    color: blue;
+}
 .hero .text h4 {
     margin-bottom: 32px;
 }
-footer{
+footer {
     background-color: black;
+}
+footer .col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 64px;
+    position: relative;
+    padding-inline : 1%;
+    padding-bottom: 46px;
+}
+footer .col > div{
+    margin-bottom: 44px;
 }
 footer .col .first-col .logo {
     width: 100px;
     height: 100px;
+    display: block;
+    margin-inline: auto;
 }
-
-footer h3 ,footer h4 ,footer p {
+footer .col .first-col p {
+    max-width: 315px;
+}
+footer .col .secound-col .icon-imgs {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-inline: auto;
+}
+footer .col .secound-col .icon-imgs span {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+footer .col .secound-col .icon-imgs .icon-img {
+    width: 30px;
+    height: 30px;
+}
+footer .col .third-col .footer-links {
+    margin-top: 32px;
+}
+footer .col .third-col .footer-links .footer-link {
+    margin-top: 8px;
+}
+footer .col .third-col .footer-links .footer-link a {
+    text-decoration: none;
     color: white;
 }
+footer .col::after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    border: 1px solid white;
+    width: 99%;
+}
+footer h3,
+footer h4,
+footer p {
+    color: white;
+}
+footer h3 {
+    font-size: 25px;
+}
+footer h4 {
+    padding-block: 26px;
+    text-align: center;
+    /* margin-inline: auto; */
+}
+.toggle-span{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    display: none;
+}
 
+
+@media (max-width: 930px) {
+    html {
+        font-size: 14px;
+    }
+    .nav-bar{
+        align-items: unset;
+    }
+    .nav-links{
+        position: relative;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 0;
+        transition: height 0.5s ease;
+    }
+    .open {
+        height: 100vh;
+        visibility: visible;
+    }
+    .nav-bar .nav-links .nav-link {
+        margin-bottom: 40px;
+    }
+    .toggle-span {
+        display: block;
+        margin-top: 10px;
+    }
+    .hero {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero .imgs {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .hero .imgs .slideshow {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}

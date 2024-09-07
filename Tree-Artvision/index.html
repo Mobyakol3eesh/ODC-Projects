@@ -8,44 +8,45 @@
         <link rel="stylesheet" href="style/style.css" />
     </head>
     <body>
-        <nav class="nav-bar">
-            <a href="#"><img class="logo" src="images/logo.jpg" /></a>
-            <ul class="nav-links">
-                <li class="nav-link"><a href="#">Home</a></li>
-                <li class="nav-link"><a href="#">Sketches</a></li>
-                <li class="nav-link active">
-                    <a href="#">Decorative Pieces</a>
-                </li>
-                <li class="nav-link"><a href="#">Workshops</a></li>
-                <li class="nav-link"><a href="#">About us</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <div class="imgs">
-                <div class="slideshow">
-                    <a href=""><img src="images/HnylIxj.jpg" /></a>
-                    <a href=""><img src="images/HnyloOu.jpg" /></a>
-                    <a href=""><img src="images/HnylTWx.jpg" /></a>
-                    <a href=""><img src="images/HnylxDb.jpg" /></a>
+            <nav class="nav-bar">
+                <a href="#"><img class="logo" src="images/logo.jpg" /></a>
+                <ul class="nav-links">
+                    <li class="nav-link"><a href="#">Home</a></li>
+                    <li class="nav-link"><a href="#">Sketches</a></li>
+                    <li class="nav-link active">
+                        <a href="#">Decorative Pieces</a>
+                    </li>
+                    <li class="nav-link"><a href="#">Workshops</a></li>
+                    <li class="nav-link"><a href="#">About us</a></li>
+                </ul>
+                <span class="toggle-span" id="toggleSpan"><img src="images/menu.webp"></span>
+            </nav>
+            <div class="hero">
+                <div class="imgs">
+                    <div class="slideshow">
+                        <a><img src="images/HnylIxj.jpg" /></a>
+                        <a><img src="images/HnyloOu.jpg" /></a>
+                        <a><img src="images/HnylTWx.jpg" /></a>
+                        <a><img src="images/HnylxDb.jpg" /></a>
+                    </div>
+                    <img
+                        class="viewed-img"
+                        id="viewed-img"
+                        src="images/HnylIxj.jpg"
+                    />
                 </div>
-                <img
-                    class="viewed-img"
-                    id="viewed-img"
-                    src="images/HnylIxj.jpg"
-                />
+                <div class="text">
+                    <h2>country gurl</h2>
+                    <h4>Description : Eyes have a language of their own</h4>
+                    <h4>Dimensions : 50x60</h4>
+                    <h4>Background Material : wood</h4>
+                    <h4>Color Type : oil colors</h4>
+                    <h3>
+                        If you are interested to buy or for any inquiries
+                        <a href="#">Click Here</a>
+                    </h3>
+                </div>
             </div>
-            <div class="text">
-                <h2>country gurl</h2>
-                <h4>Description :</h4>
-                <h4>Dimensions :</h4>
-                <h4>Background Material :</h4>
-                <h4>Color Type :</h4>
-                <h3>
-                    If you are interested to buy or for any inquiries
-                    <a href="#">Click Here</a>
-                </h3>
-            </div>
-        </div>
         <footer>
             <div class="col">
                 <div class="first-col">
@@ -60,8 +61,10 @@
                 </div>
                 <div class="secound-col">
                     <h3>CONTACT INFO</h3>
-                    <a href="#"><img src="images/facebook.webp" alt="" /></a>
-                    <a href="#"><img src="images/instagram.webp" alt="" /></a>
+                    <div class="icon-imgs">
+                    <a href="#"><span><img class="icon-img" src="images/facebook.webp" alt="" /></span></a>
+                    <a href="#"><span><span><img class="icon-img" src="images/instagram.webp" alt="" /></span></a>
+                    </div>
                 </div>
                 <div class="third-col">
                     <h3>MAIN LINKS</h3>
@@ -78,5 +81,6 @@
             </div>
             <h4>Copyright ©2022 All rights reserved to Tree Art Vision.</h4>
         </footer>
+        <script src="script/index.js"></script>
     </body>
 </html>
