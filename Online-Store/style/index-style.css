@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 16px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.card {
+    border-width: 3px;
+    border-color: #005073;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card-body h3 {
+    max-width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
