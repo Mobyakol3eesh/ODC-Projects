@@ -13,11 +13,11 @@ viewedImgArr.forEach((element) => {
 });
 
 let toggleSpan = document.getElementById("toggleSpan");
-let navBar = document.querySelector('.nav-bar')
+
 let navLinks = document.querySelector('.nav-links')
-let toggleSpanStyle = window.getComputedStyle(toggleSpan);
+
+
 toggleSpan.addEventListener("click", (e) => {
     navLinks.classList.toggle('open')
     
-    // navLinks.style.height = 100 + 'vh';
 });
