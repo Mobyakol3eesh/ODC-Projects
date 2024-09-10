@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 29px;
+    padding-inline: 9.46875% 9.71875%;
+    .logo {
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            h3 {
+                font-size: 42.667px;
+            }
+            img {
+                width: 56px;
+                height: 55px;
+            }
+        }
+    }
+    .nav-links {
+        list-style: none;
+        .nav-link {
+            display: inline;
+            margin-inline-end: 8px;
+            
+            a {
+                text-decoration: none;
+
+            }
+        }
+        & :last-child {
+            margin-inline-end: 0;
+        }
+    }
+}

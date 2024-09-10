@@ -1,0 +1,50 @@
+@import url('_font.scss');;
+
+.top-header {
+    background-color: #474747;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 9px 8.82px;
+    padding-inline: 9.375% 9.645%;
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+            display: flex;
+            align-items: center;
+            margin-inline-end: 25px;
+            img {
+                margin-inline-end: 8px;
+            }
+            a {
+                text-decoration: none;
+                color :  var(--Neutral-02, #F9F9F7);
+                font-family: DMSans-Regular;
+            }
+            &:last-child {
+                margin-inline-end: 0;
+            }
+        }
+        
+        
+    }
+    .social {
+        .social-links {
+            list-style: none;
+            .social-link {
+                display: inline;
+                margin-inline-end: 4px;
+                
+                 img{
+                    width: 27.171px;
+                    height: 27.171px;
+                }  
+            }
+            & :last-child {
+                margin-inline-end: 0;
+            }
+        }
+    }
+}
