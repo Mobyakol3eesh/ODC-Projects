@@ -1,0 +1,62 @@
+.hero {
+  margin-top: 20px;
+  height: 802px;
+  background-image: url("/images/hero.png");
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .text {
+      margin-bottom: 40px;
+    h1 {
+      font-size: 6.25rem;
+      font-family: Play-Fair-Regular;
+      color: var(--Neutral-07, #2c2f24);
+      font-weight: normal;
+      max-width: 667px;
+      text-align: center;
+      line-height: 96px;
+      margin-bottom: 32px;
+    }
+    p {
+      color: var(--Neutral-07, #2c2f24);
+      font-size: 1.25rem;
+      line-height: 2rem;
+      font-family: Play-Fair-Regular;
+      font-weight: normal;
+      text-align: center;
+      max-width: 537px;
+      margin-inline: auto;
+    }
+  }
+  .choices {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 16px;
+    .btn {
+      display: inline;
+      border-radius: 118px;
+      a {
+        display: block;
+        padding: 20px 32px;
+        text-decoration: none;
+      }
+    }
+    .book-table-btn {
+        background: #AD343E;
+      a {
+        color: var(--Neutral-01, #fff);
+        font-family: DMSans-Bold;
+      }
+    }
+    .explore-menu-btn {
+        border: 1.5px solid var(--Neutral-07, #2C2F24);
+        a {
+            color: var(--Neutral-07, #182226);
+            font-family: DMSans-Bold;
+        }
+    }
+  }
+}

@@ -1,36 +1,65 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 29px;
-    padding-inline: 9.46875% 9.71875%;
-    .logo {
-        span {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            h3 {
-                font-size: 42.667px;
-            }
-            img {
-                width: 56px;
-                height: 55px;
-            }
-        }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 29px;
+  padding-inline: 9.46875% 9.71875%;
+  .logo {
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h3 {
+        color: #474747;
+        font-size: 42.667px;
+        font-family: Play-Fair-SemiBoldItalic;
+      }
+      img {
+        width: 56px;
+        height: 55px;
+        margin-inline-end: 8px;
+      }
     }
-    .nav-links {
-        list-style: none;
-        .nav-link {
-            display: inline;
-            margin-inline-end: 8px;
-            
-            a {
-                text-decoration: none;
+  }
+  .nav-links {
+    list-style: none;
+    .nav-link {
+      display: inline-flex;
+      
+      margin-inline-end: 8px;
+      border-radius: 34px;
+      a {
+        font-size: 1rem;
+        
+        padding: 4px 16px;
+        font-family: DMSans-Medium;
+        text-decoration: none;
+        color: var(--Neutral-07, #2c2f24);
+        line-height: 24px;
+      }
+      & :hover {
+          border-radius: 34px;
+        background: #dbdfd0;
+      }
+      
+    }
+    
+    & :last-child {
+      margin-inline-end: 0;
+    }
+    
+  }
 
-            }
-        }
-        & :last-child {
-            margin-inline-end: 0;
-        }
-    }
+  .book-btn {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 118px;
+    font-size: 16px;
+    border: 1.5px solid var(--Neutral-07, #2c2f24);
+    color: var(--Neutral-07, #182226);
+    font-family: DMSans-Bold;
+  }
+  .active {
+    background: #dbdfd0;
+  }
 }
