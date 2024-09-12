@@ -36,7 +36,7 @@
     justify-content: center;
     column-gap: 16px;
     .btn {
-      display: inline;
+      display: inline-flex;
       border-radius: 118px;
       a {
         display: block;
@@ -46,7 +46,9 @@
     }
     .book-table-btn {
         background: #AD343E;
+        border: 1.5px solid #AD343E;
       a {
+        
         color: var(--Neutral-01, #fff);
         font-family: DMSans-Bold;
       }

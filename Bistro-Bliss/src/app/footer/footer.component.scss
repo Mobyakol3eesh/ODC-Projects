@@ -1,0 +1,104 @@
+.footer {
+  background-color: #474747;
+  padding-block: 120px 85px;
+  .col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 135px;
+    margin-bottom: 130px;
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        h3 {
+          color: #fff;
+          font-size: 32.67px;
+          font-family: Play-Fair-SemiBoldItalic;
+        }
+        img {
+          width: 56px;
+          height: 55px;
+          margin-inline-end: 8px;
+        }
+      }
+      p {
+        max-width: 293px;
+        color: var(--Neutral-04, #adb29e);
+        font-family: DMSans-Regular;
+        font-size: 1rem;
+        line-height: 1.25rem;
+      }
+      .links {
+        list-style: none;
+        .link {
+          display: inline-flex;
+          margin-inline-end: 12px;
+          &:last-child {
+            margin-inline-end: 0;
+          }
+        }
+      }
+    }
+    .col-2 , .col-3{
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      h4 {
+        color: var(--Neutral-01, #FFF);
+        font-family: DMSans-Bold;
+        font-size: 1rem;
+        font-weight: normal;
+        margin-bottom: 40px;
+      }
+      .links {
+        list-style-type: none;
+        .link {
+            margin-bottom: 20px;
+          a {
+            text-decoration: none;
+            color: var(--Neutral-03, #dbdfd0);
+            font-family: DMSans-Regular;
+            font-size: 1rem;
+          }
+          &:last-child{
+              margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .col-4 {
+        h4 {
+        color: var(--Neutral-01, #FFF);
+        font-family: DMSans-Bold;
+        font-size: 1rem;
+        font-weight: normal;
+        margin-bottom: 40px;
+        text-align: left;
+        }
+      .imgs-collection {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        gap: 9px;
+        img {
+            width: 194px;
+            height: 170px;
+            border-radius: 12px;
+        }
+      }
+    }
+  }
+  h4 {
+    color: var(--Neutral-04, #ADB29E);
+    font-family: DMSans-Regular;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+  }
+}
