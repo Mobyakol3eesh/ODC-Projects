@@ -1,17 +1,9 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter, Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { SwitchPageComponent } from './switch-page/switch-page.component';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-const routes: Routes = [
-  { path: 'home-page', component: HomePageComponent },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'switch-page', component: SwitchPageComponent},
-  { path: '', redirectTo: 'switch-page', pathMatch: 'full' },
-];
+import { routes } from './app.routes';
+import { provideClientHydration } from '@angular/platform-browser';
+
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideRouter(routes)
-  ]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
 };
