@@ -1,6 +1,10 @@
 {
   "name": "bistro-bliss",
   "version": "0.0.0",
+  "prettier": {
+    "tabWidth": 4,
+    "useTabs": false
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

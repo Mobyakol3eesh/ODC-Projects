@@ -1,0 +1,28 @@
+.container {
+  background-color: var(--Neutral-02, #f9f9f7);
+  background-image: url("/images/Map.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+  .text {
+    padding-block: 74px 72px;
+    h1 {
+      color: var(--Neutral-07, #2c2f24);
+      text-align: center;
+      font-family: Play-Fair-Regular;
+      font-size: 6.25rem;
+      font-weight: normal;
+      margin-bottom: 24px;
+      line-height: 96px;
+    }
+    p {
+      color: var(--Neutral-06, #495460);
+      text-align: center;
+      font-family: DMSans-Regular;
+      font-size: 1.125rem;
+      line-height: 28px; 
+      max-width: 545px;
+      margin-inline: auto;
+    }
+  }
+}
