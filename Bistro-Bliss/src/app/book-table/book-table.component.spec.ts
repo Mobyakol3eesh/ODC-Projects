@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwitchPageComponent } from './switch-page.component';
+import { BookTableComponent } from './book-table.component';
 
-describe('SwitchPageComponent', () => {
-  let component: SwitchPageComponent;
-  let fixture: ComponentFixture<SwitchPageComponent>;
+describe('BookTableComponent', () => {
+  let component: BookTableComponent;
+  let fixture: ComponentFixture<BookTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SwitchPageComponent]
+      imports: [BookTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SwitchPageComponent);
+    fixture = TestBed.createComponent(BookTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

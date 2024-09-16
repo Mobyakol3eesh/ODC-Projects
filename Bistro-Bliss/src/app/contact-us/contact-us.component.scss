@@ -1,8 +1,8 @@
 .container {
   background: linear-gradient(
     to bottom,
-    var(--Neutral-02, #f9f9f7) 50%,
-    #fff 50%
+    var(--Neutral-02, #f9f9f7) 60%,
+    #fff 40%
   );
   .contact-us {
     .text {
@@ -121,15 +121,55 @@
     align-items: flex-start;
     justify-content: center;
     gap: 90px;
+    margin-bottom: 125px;
     .col-1 {
       h3 {
         color: var(--Neutral-07, #2c2f24);
         font-family: DMSans-Bold;
         font-size: 1.25rem;
         font-weight: normal;
+        margin-bottom: 24px;
       }
       h2 {
-          
+        color: #ad343e;
+        font-family: DMSans-Bold;
+        font-size: 1.5rem;
+        font-weight: normal;
+        letter-spacing: -0.72px;
+      }
+    }
+    .col-2 {
+      h3 {
+        color: var(--Neutral-07, #2c2f24);
+        font-family: DMSans-Bold;
+        font-size: 1.25rem;
+        font-weight: normal;
+        margin-bottom: 24px;
+      }
+      p {
+        color: var(--Neutral-07, #2c2f24);
+        font-family: DMSans-Regular;
+        font-size: 1.125rem;
+        font-weight: normal;
+        line-height: 28px;
+        max-width: 187px;
+      }
+    }
+    .col-3 {
+      h3 {
+        color: var(--Neutral-07, #2c2f24);
+        font-family: DMSans-Bold;
+        font-size: 1.25rem;
+        font-weight: normal;
+        margin-bottom: 24px;
+      }
+      p {
+        color: var(--Neutral-07, #2c2f24);
+        font-family: DMSans-Regular;
+        font-size: 1.125rem;
+        font-weight: normal;
+        line-height: 28px;
+        max-width: 209px;
       }
     }
   }
