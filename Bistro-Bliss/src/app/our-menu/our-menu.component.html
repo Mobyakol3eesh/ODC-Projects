@@ -1,0 +1,56 @@
+<div class="container">
+    <header>
+        <app-top-header></app-top-header>
+        <app-nav></app-nav>
+    </header>
+    <div class="text">
+        <h1>Our Menu</h1>
+        <p>
+            We consider all the drivers of change gives you the components you
+            need to change to create a truly happens.
+        </p>
+    </div>
+    <div class="menu-list">
+        <ul class="lists">
+            <li class="item">
+                <a class="btn active" href="" (click)="goPage($event)">All</a>
+            </li>
+            <li class="item">
+                <a class="btn" href="" (click)="goPage($event)">Breakfast</a>
+            </li>
+            <li class="item">
+                <a class="btn" href="" (click)="goPage($event)">Lunch</a>
+            </li>
+            <li class="item">
+                <a class="btn" href="" (click)="goPage($event)">Dinner</a>
+            </li>
+            <li class="item">
+                <a class="btn" href="" (click)="goPage($event)">Desserts</a>
+            </li>
+        </ul>
+    </div>
+    <div class="menu-section">
+        <div *ngIf="selectedMenu === 'All'">
+            <app-all-menu>
+            </app-all-menu>
+        </div>
+        <div *ngIf="selectedMenu === 'Breakfast'">
+            <!-- Content for Breakfast -->
+        </div>
+        <div *ngIf="selectedMenu === 'Lunch'">
+            <!-- Content for Lunch -->
+        </div>
+        <div *ngIf="selectedMenu === 'Dinner'">
+            <!-- Content for Dinner -->
+        </div>
+        <div *ngIf="selectedMenu === 'Desserts'">
+            <!-- Content for Desserts -->
+        </div>
+    </div>
+</div>
+<div class="order-apps">
+    <app-order-apps></app-order-apps>
+</div>
+<footer>
+    <app-footer></app-footer>
+</footer>
