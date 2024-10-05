@@ -1,12 +1,20 @@
 const User = require('../models/userModel');
-
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const dotenv = require('dotenv').config();
 let registerUser = async (req, res) => {
     let user = req.body;
+    let jwtKey = process.env.JWT_KEY;
     try {
-        await User.create(user); // Make sure to await the creation
-        res.status(201).send('User created successfully');
+        let hashedPassword = await bcrypt.hash(user.password, 10);
+        user.password = hashedPassword;
+        let token = await jwt.sign({ name: user.name , tasks : user.tasks }, jwtKey, { expiresIn: '1h' });
+        res.cookie('jwt', token, {
+        });
+        await User.create(user); 
+        res.json('User created successfully');
     } catch (err) {
-        res.status(500).send('Error creating user');
+        res.json('Error creating user' + err );
     }
 };
 

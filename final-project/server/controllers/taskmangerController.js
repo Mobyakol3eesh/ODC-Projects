@@ -1,6 +1,6 @@
 
+const User = require('../models/user');
 
-
-let getTasks = ((req,res) => {
+let getTasks = async (req, res) => { 
     
-})
+};
