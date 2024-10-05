@@ -4,12 +4,12 @@
         <input class="form-control"  placeholder="name@example.com" type="email" name="email" [(ngModel)]="user.email" #emailView="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required />
         @if (emailView.touched) {
             @if(emailView.errors?.['required']) {
-                <div>
+                <div class="error alert alert-danger" role="alert">
                     <p>Email is required</p>
                 </div>
             }
             @if(emailView.errors?.['pattern']) {
-                <div>
+                <div class="alert alert-danger error">
                     <p>Email is not valid</p>
                 </div>
             }
@@ -21,12 +21,12 @@
         <input class="form-control" placeholder="passowrd" type="password" #passwordView="ngModel" [(ngModel)]="user.password" name="password" required pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,32}$"/>
         @if(passwordView.touched) {
             @if(passwordView.errors?.['required']) {
-                <div>
+                <div class="alert alert-danger error">
                     <p>Password is required</p>
                 </div>
             }
             @if(passwordView.errors?.['pattern']) {
-                <div>
+                <div class="alert alert-danger error">
                     <p>Password Invalid</p>
                 </div>
             }
