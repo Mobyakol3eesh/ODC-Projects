@@ -7,7 +7,7 @@ let loginUser = async (req, res) => {
     try {
         console.log(userData);
         const user = await User.findOne({ email: userData.email });
-        console.log(user);
+        console.log(user._id);
         if (!user) {
             return res.json({ message: "User not found" });
         }
@@ -16,7 +16,7 @@ let loginUser = async (req, res) => {
             return res.json({ message: "Invalid password" });
         } else {
             const token = await jwt.sign(
-                { name: user.name , tasks: user.tasks },
+                { userID : user._id, name: user.name , tasks: user.tasks },
                 process.env.JWT_KEY,
                 { expiresIn: "1h" }
             );
@@ -33,7 +33,7 @@ let loginUser = async (req, res) => {
 let getUserData = async (req, res) => {
     const user = req.user;
     try {
-        res.json({"name" : user.name, "tasks" : user.tasks});
+        res.json(user);
     } catch (err) {
         res.json({ message: "Server error" + err});
     }

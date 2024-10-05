@@ -1,5 +1,21 @@
 const mongose = require('mongoose');
 
+const taskSchema = new mongose.Schema({
+    taskName : {
+        type : String,
+        required : true,
+        min : 0,
+    },
+    date : {
+        type : String,
+        required : true,
+    },
+    isFulfiled : {
+        type : Boolean,
+        required : true,
+    }
+});
+
 const userSchema = new mongose.Schema({
     name : {
         type : String,
@@ -20,7 +36,7 @@ const userSchema = new mongose.Schema({
     tasks : {
         type : [],
         required : false,
-        default : [],
+        default : [taskSchema],
     }
 });
 

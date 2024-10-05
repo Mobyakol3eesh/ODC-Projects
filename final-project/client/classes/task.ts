@@ -5,11 +5,11 @@ export class Task {
      
     private name: string;
     private date: string;
-    private fullfilled: boolean;
+    private isFulfiled : boolean;
     constructor(name : string) {
         this.name = name;
         this.date = new Date().toLocaleDateString('en-US',options);
-        this.fullfilled = false;   
+        this.isFulfiled = false;   
         
     }
     getName() {

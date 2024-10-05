@@ -8,7 +8,7 @@ let registerUser = async (req, res) => {
     try {
         let hashedPassword = await bcrypt.hash(user.password, 10);
         user.password = hashedPassword;
-        let token = await jwt.sign({ name: user.name , tasks : user.tasks }, jwtKey, { expiresIn: '1h' });
+        let token = await jwt.sign({userID: user._id, name: user.name , tasks : user.tasks }, jwtKey, { expiresIn: '1h' });
         res.cookie('jwt', token, {
         });
         await User.create(user); 
