@@ -15,6 +15,18 @@ export class Task {
     getName() {
         return this.name;
     }
+    getDate() {
+        return this.date;
+    }  
+    getIsFulfiled() {
+        return this.isFulfiled;
+    }
+    toggleStatus() {
+        this.isFulfiled = !this.isFulfiled;
+    }
+    setNmame(newName : string) {
+        this.name = newName;
+    }
 
 
 }

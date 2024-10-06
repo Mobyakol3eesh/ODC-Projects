@@ -1,1 +1,8 @@
-<app-task-adder></app-task-adder>
+<div class="container">
+    <app-task-adder></app-task-adder>
+    <div class="tasks=arr">
+    <ng-container *ngFor="let item of tasks;">
+        <app-task-item [item]="item"></app-task-item>
+    </ng-container>
+</div>
+</div>

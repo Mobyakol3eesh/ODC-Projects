@@ -12,9 +12,12 @@ import { TaskmangerOperationsService } from '../../../../services/taskmanger-ope
 })
 export class TaskAdderComponent {
   constructor(private taskMangerOperationsService : TaskmangerOperationsService) {
+    
   }
   addTask(taskName : string) {
     this.taskMangerOperationsService.addTask(taskName);
+    taskName = '';
+
   }
 
 }

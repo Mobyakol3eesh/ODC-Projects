@@ -1,13 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { TaskAdderComponent } from "./task-adder/task-adder.component";
+import { TaskItemComponent } from './task-item/task-item.component';
+import { TaskmangerOperationsService } from '../../../services/taskmanger-operations.service';
+import { Task } from '../../../classes/task';
+import { Subscription } from 'rxjs';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TaskAdderComponent],
+  imports: [TaskAdderComponent,TaskItemComponent,NgFor],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private taskMangerOpService : TaskmangerOperationsService) {};
+  tasks? : Task[] ;
+
+  private tasksSub: Subscription = new Subscription();
+  
+  ngOnInit() {
+    this.tasks = this.taskMangerOpService.getTasks();  
+    this.tasksSub = this.taskMangerOpService.getTasksUpdateListener()
+      .subscribe((tasks: Task[]) => {
+        this.tasks = tasks;
+        console.log(this.tasks);
+      });
+      
+  }
+  ngOnDestroy() {
+    this.tasksSub.unsubscribe();  
+  }
 
 }

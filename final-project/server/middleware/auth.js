@@ -17,4 +17,4 @@ const authentecationToken = async (req, res, next) => {
         return res.json({"message" : "Expire or Invalid token"});
     }
 };
-module.exports = {authentecationToken};
+module.exports = {authentecationToken}; 
