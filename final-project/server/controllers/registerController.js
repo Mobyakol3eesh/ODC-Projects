@@ -12,9 +12,9 @@ let registerUser = async (req, res) => {
         res.cookie('jwt', token, {
         });
         await User.create(user); 
-        res.json('User created successfully');
+        res.json({"msg" : 'User created successfully'});
     } catch (err) {
-        res.json('Error creating user' + err );
+        res.json({ "msg" : 'Error creating user' + err });
     }
 };
 

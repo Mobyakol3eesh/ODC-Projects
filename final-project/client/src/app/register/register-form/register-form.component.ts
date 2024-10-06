@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { FormsModule,NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
@@ -16,14 +17,24 @@ export class RegisterFormComponent {
     password: string
   } = {name: '',email: '', password: ''}; 
   constructor(private router : Router) {}
+
+  httpClient = inject(HttpClient); 
+
   register(form : NgForm) {
     if(!form.valid)
     {
       console.log( "Form Not Valid");
     }
     else {
-    this.router.navigate(['/home']);  
-     console.log("Form Valid: " + JSON.stringify(form.value));
+    this.httpClient.post('http://localhost:3000/register',this.user, {withCredentials : true}).subscribe((res : any) => {
+      if(res.msg === "User created successfully") {
+        this.router.navigate(['/home']);
+      }
+      else {
+        alert(res.msg);
+      }
+    });
+
     }
   }
 }

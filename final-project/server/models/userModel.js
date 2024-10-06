@@ -19,13 +19,13 @@ const taskSchema = new mongose.Schema({
 const userSchema = new mongose.Schema({
     name : {
         type : String,
-        required : true,
+        required : [true ,"Name is required"],
         min: 0,     
     },
     email : {
         type : String,
-        required : true,
-        unique : true,
+        required : [true ,"Email is required"],
+        unique : [true, "Email already exists"],
         min : 0,
     },
     password : {
@@ -34,9 +34,9 @@ const userSchema = new mongose.Schema({
         min : 0,
     },
     tasks : {
-        type : [],
+        type : [taskSchema],
         required : false,
-        default : [taskSchema],
+        default : [],
     }
 });
 

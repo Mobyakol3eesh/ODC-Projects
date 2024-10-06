@@ -7,13 +7,12 @@ let loginUser = async (req, res) => {
     try {
         console.log(userData);
         const user = await User.findOne({ email: userData.email });
-        console.log(user._id);
         if (!user) {
-            return res.json({ message: "User not found" });
+            return res.json({ "msg": "User not found" });
         }
         const isPasswordValid = await bcrypt.compare(userData.password, user.password);
         if (!isPasswordValid) {
-            return res.json({ message: "Invalid password" });
+            return res.json({ "msg": "Invalid password" });
         } else {
             const token = await jwt.sign(
                 { userID : user._id, name: user.name , tasks: user.tasks },
@@ -21,21 +20,26 @@ let loginUser = async (req, res) => {
                 { expiresIn: "1h" }
             );
             await res.cookie("jwt", token, {
+                httpOnly: true, 
+                secure: false,  
+                sameSite: "None", 
             });
-            res.json({ message: "Login successful"});
+            res.json( { "msg" : "Login successful"});
         }
     } catch (err) {
-        console.error("Error logging in user:", err);
-        res.json({ message: "Server error" + err});
+        return res.json({ "msg": "Server error" + err});
     }
 };
 
 let getUserData = async (req, res) => {
-    const user = req.user;
     try {
-        res.json(user);
+        const user = await User.findById(req.user.userID);
+        if (!user) {
+            return res.json({ message: "Could not find user Add Failed" });
+        }
+        return res.json(user.tasks);
     } catch (err) {
-        res.json({ message: "Server error" + err});
+        return res.json({ "msg": "Error Getting Tasks "});
     }
 }
 
