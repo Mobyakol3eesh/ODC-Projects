@@ -41,7 +41,5 @@ export class TaskItemComponent implements OnInit {
   toggleStatus(){
     this.taskMangerOpService.toggleTaskStatus(this.taskName || '');
   }
-  showData(taksLabel : HTMLLabelElement) {
-    console.log(taksLabel);
-  } 
+
 }

@@ -1,0 +1,52 @@
+// Task item styles
+:host {
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; // Space between task items
+}
+
+.task-label {
+    cursor: pointer; // Change cursor to pointer for interactivity
+    color: #333; // Dark text color
+    font-size: 16px; // Font size for labels
+    margin-right: 15px; // Space between labels and checkbox
+}
+
+.task-date {
+    color: #777; // Lighter color for the date
+    margin-right: 15px; // Space between date and checkbox
+}
+.events {
+    display: flex;  
+    justify-content: space-between;
+input[type="checkbox"] {
+    cursor: pointer; // Change cursor to pointer for checkbox
+    margin-right: 15px; // Space between checkbox and buttons
+}
+
+// Button styles
+.btn {
+    border-radius: 4px; // Rounded corners for buttons
+    border: none; // Remove default border
+    padding: 8px 12px; // Padding for buttons
+    color: white; // White text color
+    transition: background-color 0.3s; // Smooth transition on hover
+
+    &.btn-danger {
+        background-color: #dc3545; // Red background for delete button
+
+        &:hover {
+            background-color: #c82333; // Darker red on hover
+        }
+    }
+
+    &.btn-warning {
+        background-color: #ffc107; // Yellow background for edit button
+
+        &:hover {
+            background-color: #e0a800; // Darker yellow on hover
+        }
+    }
+}
+}
