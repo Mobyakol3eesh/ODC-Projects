@@ -30,7 +30,7 @@ export class LoginFormComponent {
       this.httpClient.post('http://localhost:3000/login', this.user ,{withCredentials : true}).subscribe((res : any) => {
         if(res.msg === "Login successful") {
           this.router.navigate(['/home']);
-          console.log(document.cookie);
+
         }
         else {
           alert(res.msg);

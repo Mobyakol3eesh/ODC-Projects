@@ -21,13 +21,8 @@ export class HomeComponent implements OnInit {
   private tasksSub: Subscription = new Subscription();
   httpClient = inject(HttpClient);
   ngOnInit() {
-    
-    this.taskMangerOpService.intializedTasks();
-    console.log(document.cookie);
+    this.taskMangerOpService.initializedTasks();
     this.tasks = this.taskMangerOpService.getTasks();  
-    // this.httpClient.get<Task[]>('http://localhost:3000/login').subscribe((res: Task[]) => {  
-    //   this.tasks = res;
-    // });
     this.tasksSub = this.taskMangerOpService.getTasksUpdateListener()
       .subscribe((tasks: Task[]) => {
         this.tasks = tasks;

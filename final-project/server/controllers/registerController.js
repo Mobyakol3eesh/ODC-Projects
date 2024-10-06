@@ -5,6 +5,7 @@ const dotenv = require('dotenv').config();
 let registerUser = async (req, res) => {
     let user = req.body;
     let jwtKey = process.env.JWT_KEY;
+    console.log(jwtKey);
     try {
         let hashedPassword = await bcrypt.hash(user.password, 10);
         user.password = hashedPassword;

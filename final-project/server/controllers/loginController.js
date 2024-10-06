@@ -19,10 +19,8 @@ let loginUser = async (req, res) => {
                 process.env.JWT_KEY,
                 { expiresIn: "1h" }
             );
+            console.log(user._id);
             await res.cookie("jwt", token, {
-                httpOnly: true, 
-                secure: false,  
-                sameSite: "None", 
             });
             res.json( { "msg" : "Login successful"});
         }
@@ -35,7 +33,7 @@ let getUserData = async (req, res) => {
     try {
         const user = await User.findById(req.user.userID);
         if (!user) {
-            return res.json({ message: "Could not find user Add Failed" });
+            return res.json({ message: "Could not find user" });
         }
         return res.json(user.tasks);
     } catch (err) {

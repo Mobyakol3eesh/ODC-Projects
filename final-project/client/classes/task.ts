@@ -1,32 +1,36 @@
-
-const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' , hour: '2-digit', minute: '2-digit'};
+const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+};
 export class Task {
-  
-     
     private name: string;
     private date: string;
-    private isFulfiled : boolean;
-    constructor(name : string) {
+    private isFulfiled: boolean;
+    constructor(
+        name: string,
+        date = new Date().toLocaleDateString('en-US', options),
+        isFulfiled = false
+    ) {
         this.name = name;
-        this.date = new Date().toLocaleDateString('en-US',options);
-        this.isFulfiled = false;   
-        
+        this.date = date;
+        this.isFulfiled = isFulfiled;
     }
     getName() {
         return this.name;
     }
     getDate() {
         return this.date;
-    }  
+    }
     getIsFulfiled() {
         return this.isFulfiled;
     }
     toggleStatus() {
         this.isFulfiled = !this.isFulfiled;
     }
-    setNmame(newName : string) {
+    setNmame(newName: string) {
         this.name = newName;
     }
-
-
 }
