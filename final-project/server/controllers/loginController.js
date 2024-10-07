@@ -15,13 +15,13 @@ let loginUser = async (req, res) => {
             return res.json({ "msg": "Invalid password" });
         } else {
             const token = await jwt.sign(
-                { userID : user._id, name: user.name , tasks: user.tasks },
+                { userID : user._id, name: user.name},
                 process.env.JWT_KEY,
                 { expiresIn: "1h" }
             );
             console.log(user._id);
-            await res.cookie("jwt", token, {
-            });
+            await res.cookie("jwt", token, res.cookie("jwt", token, {
+            }));
             res.json( { "msg" : "Login successful"});
         }
     } catch (err) {

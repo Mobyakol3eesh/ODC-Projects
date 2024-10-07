@@ -15,18 +15,26 @@ export class TaskmangerOperationsService {
     constructor() {}
     addTask(taskName: string) {
         this.tasks.push(new Task(taskName));
+        this.httpClient.post('http://localhost:3000/api/task', {taskName: taskName}, {withCredentials: true}).subscribe((res: any) => {
+            console.log(res);
+        });
         this.tasksUpdated.next([...this.tasks]);
     }
     initializedTasks() {
         this.httpClient
-            .get('http://localhost:3000/login', { withCredentials: true })
+            .get('http://localhost:3000/api/login', { withCredentials: true })
             .subscribe({
                 next: (res: any) => {
+                    console.log(res);
                     this.tasks = Object.values(res).map(
                         (item: any) =>
                             new Task(item.taskName, item.date, item.isFulfiled)
                     );
-
+                    // console.log(Object.values(res).map(
+                    //     (item: any) =>
+                    //         new Task(item.taskName, item.date, item.isFulfiled)
+                    // ))
+                    this.tasksUpdated.next([...this.tasks]);
                     console.log('Initialized Tasks:', this.tasks);
                 },
                 error: (err) => {
@@ -46,6 +54,9 @@ export class TaskmangerOperationsService {
         console.log(index);
         if (index >= 0) {
             this.tasks.splice(index, 1);
+            this.httpClient.delete("http://localhost:3000/api/task/"+index, {params: {taskName: taskName}}).subscribe((res: any) => {
+                console.log(res);
+            });
             this.tasksUpdated.next([...this.tasks]);
         }
     }

@@ -23,7 +23,7 @@ app.use(cookies());
 // app.use(frontAcess.portAccess);
 
 
-app.use('/register',registerRouter);
-app.use('/login',loginRouter);
-app.use('/task',taskMangerRouter)
+app.use('/api/register',registerRouter);
+app.use('/api/login',loginRouter);
+app.use('/api/task',taskMangerRouter)
 mongoose.connect('mongodb://localhost:27017/admin');
