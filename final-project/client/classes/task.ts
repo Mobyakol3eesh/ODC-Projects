@@ -30,7 +30,7 @@ export class Task {
     toggleStatus() {
         this.isFulfiled = !this.isFulfiled;
     }
-    setNmame(newName: string) {
+    setName(newName: string) {
         this.name = newName;
     }
 }

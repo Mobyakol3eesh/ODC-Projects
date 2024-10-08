@@ -13,9 +13,11 @@ export class TaskmangerOperationsService {
     httpClient = inject(HttpClient);
 
     constructor() {}
+
     addTask(taskName: string) {
-        this.tasks.push(new Task(taskName));
-        this.httpClient.post('http://localhost:3000/api/task', {taskName: taskName}, {withCredentials: true}).subscribe((res: any) => {
+        let task = new Task(taskName);
+        this.tasks.push(task);
+        this.httpClient.post('http://localhost:3000/api/task', {taskName : task.getName() , date : task.getDate() , isFulfiled : task.getIsFulfiled()}, {withCredentials: true}).subscribe((res: any) => {
             console.log(res);
         });
         this.tasksUpdated.next([...this.tasks]);
@@ -54,23 +56,29 @@ export class TaskmangerOperationsService {
         console.log(index);
         if (index >= 0) {
             this.tasks.splice(index, 1);
-            this.httpClient.delete("http://localhost:3000/api/task/"+index, {params: {taskName: taskName}}).subscribe((res: any) => {
+            this.httpClient.delete("http://localhost:3000/api/task/"+index,{withCredentials: true}).subscribe((res: any) => {
                 console.log(res);
             });
             this.tasksUpdated.next([...this.tasks]);
         }
     }
     toggleTaskStatus(taskName: string) {
-        let task = this.tasks.find((t) => t.getName() === taskName);
-        if (task) {
-            task.toggleStatus();
+        let index = this.tasks.findIndex((t) => t.getName() === taskName);
+        if (index >= 0) {
+            this.tasks[index].toggleStatus();
+            this.httpClient.patch("http://localhost:3000/api/task/"+index, {taskName : taskName , date : this.tasks[index].getDate() , isFulfiled : this.tasks[index].getIsFulfiled() }, {withCredentials: true}).subscribe((res: any) => {
+                console.log(res);
+            });
             this.tasksUpdated.next([...this.tasks]);
         }
     }
     updateTask(taskName: string, newName: string) {
-        let task = this.tasks.find((t) => t.getName() === taskName);
-        if (task) {
-            task.setNmame(newName);
+        let index = this.tasks.findIndex((t) => t.getName() === taskName);
+        if (index >= 0) {
+            this.tasks[index].setName(newName);
+            this.httpClient.patch("http://localhost:3000/api/task/"+index, {taskName : newName , date : this.tasks[index].getDate() , isFulfiled : this.tasks[index].getIsFulfiled() }, {withCredentials: true}).subscribe((res: any) => {
+                console.log(res);
+            });
             this.tasksUpdated.next([...this.tasks]);
         }
     }

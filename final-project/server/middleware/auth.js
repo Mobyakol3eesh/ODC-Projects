@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 
 const authentecationToken = async (req, res, next) => {
 
-    const token = req.cookies.jwt;
+    const token = await req.cookies.jwt;
     const jwtKey = process.env.JWT_KEY;
     console.log(token);
     if (!token) {

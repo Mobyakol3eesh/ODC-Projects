@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   httpClient = inject(HttpClient);
   ngOnInit() {
     this.taskMangerOpService.initializedTasks();
-    this.tasks = this.taskMangerOpService.getTasks();  
+    this.tasks = this.taskMangerOpService.getTasks();
     this.tasksSub = this.taskMangerOpService.getTasksUpdateListener()
       .subscribe((tasks: Task[]) => {
         this.tasks = tasks;
