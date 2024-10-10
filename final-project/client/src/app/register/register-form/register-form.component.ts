@@ -26,7 +26,7 @@ export class RegisterFormComponent {
       console.log( "Form Not Valid");
     }
     else {
-    this.httpClient.post('http://localhost:3000/api/register',this.user, {withCredentials : true}).subscribe((res : any) => {
+    this.httpClient.post('http://localhost:3000/api/register',this.user).subscribe((res : any) => {
       if(res.msg === "User created successfully") {
         this.router.navigate(['/login']);
       }

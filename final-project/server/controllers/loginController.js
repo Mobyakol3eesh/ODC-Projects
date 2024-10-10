@@ -19,9 +19,11 @@ let loginUser = async (req, res) => {
                 process.env.JWT_KEY,
                 { expiresIn: "1h" }
             );
-            console.log(user._id);
-            await res.cookie("jwt", token, res.cookie("jwt", token, {
-            }));
+            await res.cookie("jwt", token, 
+            {
+                httpOnly: true,
+            }
+        );
             res.json( { "msg" : "Login successful"});
         }
     } catch (err) {
