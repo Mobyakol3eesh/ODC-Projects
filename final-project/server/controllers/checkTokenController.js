@@ -8,14 +8,14 @@ const checkToken = async (req, res) => {
     const jwtKey = process.env.JWT_KEY;
     console.log(token);
     if (!token) {
-        return res.json({"message" : "Unauthorized Token is Not Found"});
+        return res.json({"message" : "Unauthorized Token is Not Found", "value" : false});
     }
     try {
         await jwt.verify(token,jwtKey);
-        res.json({"message" : "Authorized"});
+        res.json({"message" : "Authorized" , "value" : true});
     }
     catch(err) {
-        return res.json({"message" : "Expire or Invalid token"});
+        return res.json({"message" : "Expire or Invalid token" , "value" : false});
     }
 };
 

@@ -3,6 +3,7 @@ const app = express();
 
 const registerRouter = require('./routes/registerRoute');
 const loginRouter = require('./routes/loginRoute');
+const logoutRouter = require('./routes/logoutRoute');
 const mongoose = require('mongoose');
 const cookies = require('cookie-parser');
 const checkTokenRouter = require('./routes/checkTokenRoute');
@@ -25,6 +26,7 @@ app.use(cookies());
 
 app.use('/api/register',registerRouter);
 app.use('/api/login',loginRouter);
+app.use('/api/logout',logoutRouter);
 app.use('/api/check-token',checkTokenRouter);
 app.use('/api/task',taskMangerRouter)
 mongoose.connect('mongodb://localhost:27017/admin');
