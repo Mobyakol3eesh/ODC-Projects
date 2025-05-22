@@ -6,6 +6,7 @@ const loginRouter = require('./routes/loginRoute');
 const logoutRouter = require('./routes/logoutRoute');
 const mongoose = require('mongoose');
 const cookies = require('cookie-parser');
+const auth = require('./middleware/auth');
 const checkTokenRouter = require('./routes/checkTokenRoute');
 const taskMangerRouter = require('./routes/taskmangerRoute');
 const cors = require('cors');
@@ -28,5 +29,5 @@ app.use('/api/register',registerRouter);
 app.use('/api/login',loginRouter);
 app.use('/api/logout',logoutRouter);
 app.use('/api/check-token',checkTokenRouter);
-app.use('/api/task',taskMangerRouter)
+app.use('/api/task',auth.authentecationToken,taskMangerRouter)
 mongoose.connect('mongodb://localhost:27017/admin');
