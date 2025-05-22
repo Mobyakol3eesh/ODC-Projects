@@ -18,8 +18,12 @@ export class LoginService {
             })
             .subscribe((res: any) => {
                 if (res.msg === 'Login successful') {
-                     this.authService.checkAuth().subscribe(() => {
-                        this.router.navigate(['/home']);
+                     this.authService.checkAuth().subscribe((isAuth) => {
+                        if (isAuth) {
+                            this.router.navigate(['/home']);
+                        } else {
+                            alert('Login failed');
+                        }
                      });
                 } else {
                     alert(res.msg);

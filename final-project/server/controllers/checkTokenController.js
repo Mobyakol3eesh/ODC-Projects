@@ -6,12 +6,12 @@ const checkToken = async (req, res) => {
 
     const token = await req.cookies.jwt;
     const jwtKey = process.env.JWT_KEY;
-    console.log(token);
+    // console.log(token);
     if (!token) {
         return res.json({"message" : "Unauthorized Token is Not Found", "value" : false});
     }
     try {
-        await jwt.verify(token,jwtKey);
+        jwt.verify(token,jwtKey);
         res.json({"message" : "Authorized" , "value" : true});
     }
     catch(err) {

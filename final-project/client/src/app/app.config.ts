@@ -7,5 +7,5 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), { provide: LocationStrategy, useClass: HashLocationStrategy },provideClientHydration(),provideHttpClient(withFetch())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideHttpClient(withFetch())]
 };

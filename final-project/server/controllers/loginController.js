@@ -22,6 +22,9 @@ let loginUser = async (req, res) => {
             await res.cookie("jwt", token, 
             {
                 httpOnly: true,
+                sameSite: "lax",
+                secure: false,
+                maxAge: 3600000,
             }
         );
             res.json( { "msg" : "Login successful"});
