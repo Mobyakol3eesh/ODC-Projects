@@ -4,6 +4,6 @@ const auth = require('../middleware/auth');
 
 
 router.route('/')
-    .get(auth.authentecationToken,logoutController.logout);
+    .get(logoutController.logout);
 
 module.exports = router;
