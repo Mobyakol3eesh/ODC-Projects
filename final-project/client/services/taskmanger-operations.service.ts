@@ -18,7 +18,7 @@ export class TaskmangerOperationsService {
         let task = new Task(taskName);
         this.tasks.push(task);
         this.httpClient.post('http://localhost:3000/api/task', {taskName : task.getName() , date : task.getDate() , isFulfiled : task.getIsFulfiled()}, {withCredentials: true}).subscribe((res: any) => {
-            console.log(res);
+            
         });
         this.tasksUpdated.next([...this.tasks]);
     }
@@ -32,10 +32,6 @@ export class TaskmangerOperationsService {
                         (item: any) =>
                             new Task(item.taskName, item.date, item.isFulfiled)
                     );
-                    // console.log(Object.values(res).map(
-                    //     (item: any) =>
-                    //         new Task(item.taskName, item.date, item.isFulfiled)
-                    // ))
                     this.tasksUpdated.next([...this.tasks]);
                     console.log('Initialized Tasks:', this.tasks);
                 },

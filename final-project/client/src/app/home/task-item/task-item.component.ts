@@ -21,15 +21,13 @@ export class TaskItemComponent implements OnInit {
     if(!this.item) return;
 
     this.taskName = this.item?.getName();
-    console.log(this.taskName)
+    
     this.taksDate = this.item?.getDate();
     this.taskIsFulfiled = this.item?.getIsFulfiled();
   }
 
   deleteTask(taskLabel : HTMLLabelElement) {
-    console.log(this.taskName);
-    console.log(taskLabel.textContent);
-    this.taskMangerOpService.deleteTask(taskLabel.textContent || '');
+   this.taskMangerOpService.deleteTask(taskLabel.textContent || '');
    this.item = undefined;
   }
   updateTask(taskLabel : HTMLLabelElement) {

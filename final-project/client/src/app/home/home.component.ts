@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
             .getTasksUpdateListener()
             .subscribe((tasks: Task[]) => {
                 this.tasks = tasks;
-                console.log(this.tasks);
             });
            
     }
