@@ -3,10 +3,10 @@
         type="text"
         class="form-control"
         placeholder="Add a Task"
-        #taskName
-        (keyup.enter)="addTask(taskName.value)"
+        [(ngModel)]="taskName"
+        (keyup.enter)="addTask()"
     />
-    <button class="btn btn-primary" type="button" (click)="addTask(taskName.value)">
+    <button class="btn btn-primary" type="button" (click)="addTask()">
         Add Task
     </button>
 </div>
