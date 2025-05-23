@@ -16,18 +16,8 @@ export class LoginService {
             .post('http://localhost:3000/api/login', user, {
                 withCredentials: true,
             })
-            .subscribe((res: any) => {
-                if (res.msg === 'Login successful') {
-                     this.authService.checkAuth().subscribe((isAuth) => {
-                        if (isAuth) {
-                            this.router.navigate(['/home']);
-                        } else {
-                            alert('Login failed');
-                        }
-                     });
-                } else {
-                    alert(res.msg);
-                }
+            .subscribe(() => {  
+                this.router.navigate(['/home']);
             });
     }
 }

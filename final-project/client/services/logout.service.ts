@@ -13,15 +13,7 @@ export class LogoutService {
         this.httpClient
             .get('http://localhost:3000/api/logout', { withCredentials: true })
             .subscribe((res: any) => {
-                if (res.msg === 'Logged out successfully.') {
-                    this.authService
-                        .checkAuth()
-                        .subscribe(() => {
-                            this.router.navigate(['/login']);
-                        });
-                } else {
-                    console.log('Error');
-                }
+               this.router.navigate(['/login']);
             });
     }
 }
